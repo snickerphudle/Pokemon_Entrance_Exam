@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>Pokemon Entrance Exam</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <img
+      src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/pokemon.png?v=1648321888863"
+      width="25%"
+      align="right"
+    />
+    <!-- this is the start of content -->
+    <br />
+    <h1>Pokemon Trainer Entrance Exam</h1>
+    <br />
+    <p>
+      Welcome, trainer! You've come a long way in your Pokemon studies, and now
+      it's time for you to embark on your Pokemon adventure! Before you leave,
+      you must prove yourself worthy of a Pokemon. To pass the exam, you must
+      correctly repeat this memory test.
+      <br /><br />
+      During each round, a sound will play as well as a button will light up.
+      Each round, an additional button will be lit up, and you must repeat the
+      exact sequence of buttons. There are a total of 13 rounds. In order to
+      pass the exam and receive your first Pokemon, you must pass all 13 rounds.
+      Once you are ready to begin the challenge, you may click on the start
+      button. You only have 3 lives, so be careful! The exam will end once you
+      make 3 mistakes. If you'd like to study for the exam, listen to the first
+      12 seconds of <a href="https://www.youtube.com/watch?v=rg6CiPI6h2g">this video.</a>
+      <br /><br />
+      Good luck!
+    </p>
+
+    <p id="timeDisplay">Time Remaining:</p>
+    <p id="Progress">Progress: </p>
+    <p>Lives:</p>
+    <img
+      id="life1"
+      class="life"
+      src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/pokeball.png?v=1648356151456"
+    />
+    <img
+      id="life2"
+      class="life"
+      src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/pokeball.png?v=1648356151456"
+    />
+    <img
+      id="life3"
+      class="life"
+      src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/pokeball.png?v=1648356151456"
+    />
+    <div align="center">
+      <button id="startBtn" onclick="startGame()">Start</button>
+      <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div id="gameButtonArea" align="center">
+      <button
+        id="button1"
+        onclick="guess(1)"
+        onmousedown="mouseDownEvents(1)"
+        onmouseup="mouseUpEvents(1)"
+      >
+        <img
+          id="bulbasaur"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/bulbasaur.png?v=1648314691827"
+        />
+        <img
+          id="venasaur"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/venasaur.png?v=1648314700987"
+          class="hidden"
+        />
+      </button>
+
+      <button
+        id="button2"
+        onclick="guess(2)"
+        onmousedown="mouseDownEvents(2)"
+        onmouseup="mouseUpEvents(2)"
+      >
+        <img
+          id="squirtle"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/squirtle.png?v=1648314705280"
+        />
+        <img
+          id="blastoise"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/blastoise.png?v=1648314710617"
+          class="hidden"
+        />
+      </button>
+
+      <button
+        id="button3"
+        onclick="guess(3)"
+        onmousedown="mouseDownEvents(3)"
+        onmouseup="mouseUpEvents(3)"
+      >
+        <img
+          id="clefairy"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/cleafairy.png?v=1648314747512"
+        />
+        <img
+          id="clefable"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/clefable.png?v=1648314752398"
+          class="hidden"
+        />
+      </button>
+
+      <button
+        id="button4"
+        onclick="guess(4)"
+        onmousedown="mouseDownEvents(4)"
+        onmouseup="mouseUpEvents(4)"
+      >
+        <img
+          id="pikachu"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/pika.png?v=1648314724266"
+        />
+        <img
+          id="raichu"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/raichu.png?v=1648314737879"
+          class="hidden"
+        />
+      </button>
+
+      <button
+        id="button5"
+        onclick="guess(5)"
+        onmousedown="mouseDownEvents(5)"
+        onmouseup="mouseUpEvents(5)"
+      >
+        <img
+          id="gastly"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/gastly.png?v=1648314731532"
+        />
+        <img
+          id="gengar"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/gengar.png?v=1648314743541"
+          class="hidden"
+        />
+      </button>
+
+      <button
+        id="button6"
+        onclick="guess(6)"
+        onmousedown="mouseDownEvents(6)"
+        onmouseup="mouseUpEvents(6)"
+      >
+        <img
+          id="charmander"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/charmander.png?v=1648315681026"
+        />
+        <img
+          id="charizard"
+          src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/charizard.png?v=1648314715402"
+          class="hidden"
+        />
+      </button>
+    </div>
+    
+    <div id="win" align="middle" class="hidden">
+      <h1>You Win!</h1>
+      <img src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/winPic.png?v=1648409474209" width="200"/>
+    </div>
+    
+    <div id="lose" align="middle" class="hidden">
+      <h1>You Lose!</h1>
+      <img src="https://cdn.glitch.global/c98ff0fb-bd71-4328-9a5f-792ecd9febb7/lose.png?v=1648409417666" width="200"/>
+    </div>
+  </body>
+</html>
